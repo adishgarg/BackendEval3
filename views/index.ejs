@@ -1,0 +1,9 @@
+<h1>Product Catalog</h1>
+<a href="/new">Add New Product</a>
+<ul>
+  <% products.forEach(p => { %>
+    <li>
+      <a href="/product/<%= p.id %>"><%= p.name %></a> – ₹<%= p.price %>
+    </li>
+  <% }); %>
+</ul>
