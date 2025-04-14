@@ -1,7 +1,19 @@
-<h1>Add Product</h1>
+<link rel="stylesheet" href="/styles.css">
+<nav>
+  <a href="/">🏠 Home</a> |
+  <a href="/new">➕ Add</a> |
+  <a href="/stats">📊 Stats</a>
+</nav>
+<hr />
+
+<h1>Add New Product</h1>
+<% if (error) { %>
+  <p style="color: red;"><%= error %></p>
+<% } %>
 <form method="POST" action="/product">
   <input type="text" name="name" placeholder="Name" required /><br />
   <input type="text" name="description" placeholder="Description" required /><br />
   <input type="number" name="price" placeholder="Price" required /><br />
   <button type="submit">Add</button>
 </form>
+<a href="/">← Back</a>

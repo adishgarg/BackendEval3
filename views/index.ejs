@@ -1,9 +1,25 @@
-<h1>Product Catalog</h1>
-<a href="/new">Add New Product</a>
-<ul>
-  <% products.forEach(p => { %>
-    <li>
-      <a href="/product/<%= p.id %>"><%= p.name %></a> – ₹<%= p.price %>
-    </li>
-  <% }); %>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MiniShop</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="/">🏠 Home</a> |
+    <a href="/new">➕ Add</a> |
+    <a href="/stats">📊 Stats</a>
+  </nav>
+  <hr />  
+  <h1>Product Catalog (<%= products.length %>)</h1>
+  <a href="/new">➕ Add Product</a>
+  <ul>
+    <% products.forEach(p => { %>
+      <li>
+        <strong><a href="/product/<%= p.id %>"><%= p.name %></a></strong> – ₹<%= p.price %>
+        <a href="/delete/<%= p.id %>" style="color:red;">🗑️ Delete</a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

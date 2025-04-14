@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Stats</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="/">🏠 Home</a> |
+        <a href="/new">➕ Add</a> |
+        <a href="/stats">📊 Stats</a>
+      </nav>
+      <hr />
+      
+  <h1>Product Statistics</h1>
+  <ul>
+    <li>Total Products: <%= total %></li>
+    <li>Average Price: ₹<%= avg %></li>
+    <li>Lowest Price: ₹<%= min %></li>
+    <li>Highest Price: ₹<%= max %></li>
+  </ul>
+  <a href="/">← Back to Catalog</a>
+</body>
+</html>
