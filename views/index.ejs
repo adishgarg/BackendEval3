@@ -5,21 +5,35 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <nav>
-    <a href="/">🏠 Home</a> |
-    <a href="/new">➕ Add</a> |
-    <a href="/stats">📊 Stats</a>
-  </nav>
-  <hr />  
-  <h1>Product Catalog (<%= products.length %>)</h1>
-  <a href="/new">➕ Add Product</a>
-  <ul>
-    <% products.forEach(p => { %>
-      <li>
-        <strong><a href="/product/<%= p.id %>"><%= p.name %></a></strong> – ₹<%= p.price %>
-        <a href="/delete/<%= p.id %>" style="color:red;">🗑️ Delete</a>
-      </li>
-    <% }); %>
-  </ul>
+
+  
+
+  <div class="container">
+    <nav>
+      <a href="/">🏠 Home</a>
+      <a href="/new">➕ Add Product</a>
+      <a href="/stats">📊 Stats</a>
+    </nav>
+    <h1>Product Catalog (<%= products.length %>)</h1>
+
+    <form method="GET" action="/search">
+      <input type="text" name="q" placeholder="Search product..." value="<%= query || '' %>" />
+      <button type="submit">Search</button>
+    </form>
+
+    <ul>
+      <% products.forEach(p => { %>
+        <li>
+          <strong><a href="/product/<%= p.id %>"><%= p.name %></a></strong><br />
+          ₹<%= p.price %>
+          <a href="/delete/<%= p.id %>" style="float:right; color:red;">🗑️ Delete</a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <footer>
+    © <%= new Date().getFullYear() %> MiniShop • Built with Express & EJS
+  </footer>
 </body>
 </html>

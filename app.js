@@ -30,7 +30,12 @@ app.use((req, res, next) => {
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("index", { products });
+  res.render("index", { products, query: "" });
+});
+app.get("/search", (req, res) => {
+  const query = req.query.q?.toLowerCase() || "";
+  const filtered = products.filter(p => p.name.toLowerCase().includes(query));
+  res.render("index", { products: filtered, query });
 });
 
 app.get("/product/:id", (req, res, next) => {
